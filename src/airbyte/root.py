@@ -1,5 +1,5 @@
 import requests
-from sdk.models import operations
+from airbyte.models import operations
 
 class Root:
     _client: requests.Session
@@ -16,25 +16,24 @@ class Root:
         self._language = language
         self._sdk_version = sdk_version
         self._gen_version = gen_version
-
-    
+        
     def get_documentation(self) -> operations.GetDocumentationResponse:
         r"""Root path, currently returns a redirect to the documentation
         """
         
         base_url = self._server_url
         
-        url = base_url.removesuffix("/") + "/"
+        url = base_url.removesuffix('/') + '/'
         
         
         client = self._client
         
-        r = client.request("GET", url)
-        content_type = r.headers.get("Content-Type")
+        http_res = client.request('GET', url)
+        content_type = http_res.headers.get('Content-Type')
 
-        res = operations.GetDocumentationResponse(status_code=r.status_code, content_type=content_type)
+        res = operations.GetDocumentationResponse(status_code=http_res.status_code, content_type=content_type, raw_response=http_res)
         
-        if r.status_code == 200:
+        if http_res.status_code == 200:
             pass
 
         return res

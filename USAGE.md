@@ -1,9 +1,9 @@
 <!-- Start SDK Example Usage -->
 ```python
-import sdk
-from sdk.models import operations, shared
+import airbyte
+from airbyte.models import operations, shared
 
-s = sdk.SDK()
+s = airbyte.Airbyte()
    
 req = operations.ResetConnectionRequest(
     path_params=operations.ResetConnectionPathParams(
