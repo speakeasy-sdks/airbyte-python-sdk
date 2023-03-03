@@ -5,8 +5,8 @@ management:
   speakeasyVersion: 1.7.1
 generation:
   telemetryEnabled: false
-  sdkClassName: SDK
-  sdkFlattening: false
+  sdkClassName: airbyte
+  sdkFlattening: true
 python:
   version: 0.2.0
   author: Speakeasy
