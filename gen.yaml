@@ -6,7 +6,7 @@ management:
 generation:
   telemetryEnabled: false
   sdkClassName: airbyte
-  sdkFlattening: false
+  sdkFlattening: true
 python:
   version: ""
   author: Speakeasy
