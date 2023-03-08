@@ -1,23 +1,28 @@
 import requests as requests_http
 from . import utils
 from .connections import Connections
-from .root import Root
+from .destinations import Destinations
+from .jobs import Jobs
+from .sources import Sources
+from airbyte.models import shared
 
 SERVERS = [
-	"https://api.airbyte.com/",
+	"https://api.airbyte.com/v1/",
 ]
 
 class Airbyte:
     connections: Connections
-    root: Root
+    destinations: Destinations
+    jobs: Jobs
+    sources: Sources
     
     _client: requests_http.Session
     _security_client: requests_http.Session
-    
+    _security: shared.Security
     _server_url: str = SERVERS[0]
     _language: str = "python"
-    _sdk_version: str = "0.3.3"
-    _gen_version: str = "1.8.6"
+    _sdk_version: str = "0.1.0"
+    _gen_version: str = "1.8.7"
 
     def __init__(self) -> None:
         self._client = requests_http.Session()
@@ -36,9 +41,15 @@ class Airbyte:
 
     def config_client(self, client: requests_http.Session):
         self._client = client
+        
+        if self._security is not None:
+            self._security_client = utils.configure_security_client(self._client, self._security)
         self._init_sdks()
     
-    
+    def config_security(self, security: shared.Security):
+        self._security = security
+        self._security_client = utils.configure_security_client(self._client, security)
+        self._init_sdks()
     
     def _init_sdks(self):
         self.connections = Connections(
@@ -50,7 +61,25 @@ class Airbyte:
             self._gen_version
         )
         
-        self.root = Root(
+        self.destinations = Destinations(
+            self._client,
+            self._security_client,
+            self._server_url,
+            self._language,
+            self._sdk_version,
+            self._gen_version
+        )
+        
+        self.jobs = Jobs(
+            self._client,
+            self._security_client,
+            self._server_url,
+            self._language,
+            self._sdk_version,
+            self._gen_version
+        )
+        
+        self.sources = Sources(
             self._client,
             self._security_client,
             self._server_url,
