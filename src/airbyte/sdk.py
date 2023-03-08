@@ -21,7 +21,7 @@ class Airbyte:
     _security: shared.Security
     _server_url: str = SERVERS[0]
     _language: str = "python"
-    _sdk_version: str = ""
+    _sdk_version: str = "0.1.0"
     _gen_version: str = "1.8.7"
 
     def __init__(self) -> None:
