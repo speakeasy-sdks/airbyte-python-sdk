@@ -1,14 +1,14 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 9dfd5070f8c26615addb0f3744562c8c
-  docVersion: 1.0.0
-  speakeasyVersion: 1.8.6
+  docChecksum: 103657dab54370a9925f31d069ca80e9
+  docVersion: 0.1.0
+  speakeasyVersion: 1.8.7
 generation:
   telemetryEnabled: false
   sdkClassName: airbyte
   sdkFlattening: true
 python:
-  version: ""
+  version: 0.1.0
   author: Speakeasy
   description: Python Client SDK for Airbyte API
   packageName: airbyte
