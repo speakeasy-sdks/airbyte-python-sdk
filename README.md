@@ -1,7 +1,5 @@
 <div align="center">
-    <picture>
         <img src="https://user-images.githubusercontent.com/68016351/222853569-b35cc448-6481-4cf2-a237-bd5da47e94fd.png" width="500">
-    </picture>
    <p>Programatically control Airbyte Cloud through an API.</p>
    <a href="https://resend.com/docs/api-reference/concepts"><img src="https://img.shields.io/static/v1?label=Docs&message=API Ref&color=000000&style=for-the-badge" /></a>
    <a href="https://github.com/speakeasy-sdks/airbyte-python-sdk/actions"><img src="https://img.shields.io/github/actions/workflow/status/speakeasy-sdks/airbyte-python-sdk/speakeasy_sdk_generation.yml?style=for-the-badge" /></a>
