@@ -6,4 +6,4 @@ from .createsource import *
 from .getjob import *
 from .listjobs import *
 
-__all__ = ["CancelJobPathParams","CancelJobRequest","CancelJobResponse","CreateConnectionRequest","CreateConnectionResponse","CreateDestinationRequest","CreateDestinationResponse","CreateJobRequest","CreateJobResponse","CreateSourceRequest","CreateSourceResponse","GetJobPathParams","GetJobRequest","GetJobResponse","ListJobsQueryParams","ListJobsRequest","ListJobsResponse"]
+__all__ = ["CancelJobRequest","CancelJobResponse","CreateConnectionResponse","CreateDestinationResponse","CreateJobResponse","CreateSourceResponse","GetJobRequest","GetJobResponse","ListJobsRequest","ListJobsResponse"]

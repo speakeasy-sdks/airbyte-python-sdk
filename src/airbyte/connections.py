@@ -19,7 +19,7 @@ class Connections:
         self._sdk_version = sdk_version
         self._gen_version = gen_version
         
-    def create_connection(self, request: operations.CreateConnectionRequest) -> operations.CreateConnectionResponse:
+    def create_connection(self, request: shared.ConnectionCreate) -> operations.CreateConnectionResponse:
         r"""Create a connection
         """
         
@@ -28,7 +28,7 @@ class Connections:
         url = base_url.removesuffix('/') + '/connections'
         
         headers = {}
-        req_content_type, data, form = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request, "request", 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         
